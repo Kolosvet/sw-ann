@@ -1,0 +1,36 @@
+{
+  "grid": { "dx_m": 5.0e-8, "dy_m": 5.0e-8, "dz_m": 2.0e-8, "nx": 100, "ny": 100 },
+  "bias": { "B0_T": 6.0e-2 },
+  "time": { "dt_s": 2.0e-11, "timesteps": 600 },
+
+  "source": {
+    "Bt_T": 1.0e-3,
+    "ports_fractional_y": [0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8, 0.9],
+    "x0_m": 5.0e-7,
+    "sigma_x_m": 1.0e-7,
+    "sigma_y_m": 1.0e-7,
+    "temporal": {
+      "type": "gaussian",
+      "center_frac": 0.3,
+      "sigma_frac": 0.2
+    }
+  },
+
+  "probes": { "Ndisk": 19, "x_index": -15, "radius_cells": 2 },
+
+  "io": { "basedir": "optical_excitation_focus" },
+  "device": "cuda",
+  "run_mode": "solver_only",            
+  "save_history": true, 
+  "plots": { "snapshots": true, "integrated": true },
+
+  "solver": {
+    "freeze_rho": true     
+  },
+
+  "analysis": {
+    "dispersion_geometry": "DE", 
+    "zpad_time": 2,
+    "zpad_space": 2
+  }
+}

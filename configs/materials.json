@@ -1,0 +1,20 @@
+{
+  "materials": {
+    "YIG_100nm": { 
+      "Ms_Aperm": 140000,
+      "Aex_Jperm": 0,
+      "alpha": 0.001,
+      "thickness_m": 1.0e-7,
+      "gamma_radT": 1.760859e11
+    },
+    "YIG_200nm_lowloss": {
+      "Ms_Aperm": 140000,
+      "Aex_Jperm": 0,
+      "alpha": 5e-4,
+      "thickness_m": 2.0e-7,
+      "gamma_radT": 1.760859e11
+    }
+  },
+  "default": "YIG_100nm"
+}
+
