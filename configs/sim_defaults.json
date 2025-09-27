@@ -1,5 +1,5 @@
 {
-  "grid": { "dx_m": 5.0e-8, "dy_m": 5.0e-8, "dz_m": 2.0e-8, "nx": 100, "ny": 100 },
+  "grid": { "dx_m": 5.0e-8, "dy_m": 5.0e-8, "dz_m": 2.0e-8, "nx": 140, "ny": 100 },
   "bias": { "B0_T": 6.0e-2 },
   "time": { "dt_s": 2.0e-11, "timesteps": 600 },
 
@@ -17,6 +17,18 @@
   },
 
   "probes": { "Ndisk": 19, "x_index": -15, "radius_cells": 2 },
+
+  "scatterers": {
+    "enabled": true,
+    "mode": "ryjtyjyt",            
+    "Ms_scale": 0.7,
+    "diameter_m": 150e-9,
+    "single_center_m": [2.5e-6, 2.5e-6],
+    "scattering_mask_shift" : [20, 0],
+    "pitch_m": 400e-9,
+    "nx_span_m": 10e-6,
+    "ny_span_m": 10e-6
+  },
 
   "io": { "basedir": "optical_excitation_focus" },
   "device": "cuda",

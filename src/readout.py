@@ -36,7 +36,6 @@ def _roi_mask_from_box(
         mask[xi_min:xi_max, yi_min:yi_max] = 1.0 # here we only "cut out" the ROI section 
     return mask
 
-
 class ROIIntegrator(nn.Module):
     """
     Time-integrated intensity over ROI:
@@ -70,7 +69,8 @@ class ROIIntegrator(nn.Module):
         # [1,1,1,nx,ny] for broadcasting with [B,T,3,nx,ny]
         self.register_buffer("mask", mask.view(1,1,1,nx,ny))
         area = mask.sum()
-        self.register_buffer("area", area if area > 0 else torch.tensor(1.0, device=device, dtype=dtype))
+        # avoid division by zero
+        self.register_buffer("area", area if area > 0 else torch.tensor(1.0, device=device, dtype=dtype)) 
 
     def forward(self, m: Tensor) -> Tensor:
         """
@@ -93,7 +93,6 @@ class ROIIntegrator(nn.Module):
         # integrate over time
         out = roi_power.sum(dim=1).squeeze(-1) * self.dt   # [B]
         return out
-
 
 class BandpassROI(nn.Module):
     """

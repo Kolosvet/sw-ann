@@ -15,6 +15,16 @@
       "gamma_radT": 1.760859e11
     }
   },
-  "default": "YIG_100nm"
+  "default": "YIG_100nm",
+  "scatterers": {
+    "enabled": true,
+    "mode": "grid",             
+    "Ms_scale": 0.7,               
+    "diameter_m": 150e-9,
+    "pitch_m": 400e-9,
+    "nx_span_m": 10e-6,
+    "ny_span_m": 10e-6,
+    "single_center_m": [5e-6, 5e-6]
+  }
 }
 
